@@ -2,20 +2,18 @@
 
 const dnaSchema = require('../model/DnaSchema')
 
-const save = conn => newDna =>{
+const save = conn => async (newDna) => {
     const DNA = conn.model('DNA', dnaSchema, 'dna');
-    new DNA({
+    await DNA.create({
         ...newDna
     });
-    DNA.findOneAndUpdate({
-        dna: {"$eq":newDna.dna}
-    },{isMutant: newDna.isMutant},{upsert: true, new: true}, (err, doc) =>{
-        console.log(err)
-        console.log(doc)
-    })
+    const result = await DNA.findOneAndUpdate({
+        dna: { "$eq": newDna.dna }
+    }, { isMutant: newDna.isMutant });
+    console.log("Result in query: " + JSON.stringify(result));
 }
 
-const count = conn => async (query) =>{
+const count = conn => async (query) => {
     const DNA = conn.model('DNA', dnaSchema, 'dna');
     return await DNA.find(query).count();
 }

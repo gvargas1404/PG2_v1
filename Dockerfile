@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:16
 # Create app directory
 WORKDIR /home/crugeles1/app
 # Install app dependencies
