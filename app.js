@@ -13,6 +13,14 @@ function build(opts={}) {
     app.get('/stats',(request, reply) =>{
         return getStats()
     });
+    app.post('/cassandra/', async (request, reply) =>{
+        try{
+            await require("./services/cassandraStorage").example()
+        }catch(error){
+            console.error(error)
+        }
+        return {status: 200, body: "it works!"}
+    })
     return app
 }
 

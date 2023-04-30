@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/CarlosRugeles/meli#readme",
   "dependencies": {
+    "cassandra-driver": "^4.6.4",
     "fastify": "4.16.3",
     "mongoose": "7.0.5"
   },
