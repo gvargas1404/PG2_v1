@@ -19,7 +19,8 @@
   "homepage": "https://github.com/CarlosRugeles/meli#readme",
   "dependencies": {
     "fastify": "4.16.3",
-    "mongoose": "7.0.5"
+    "mongoose": "7.0.5",
+    "redis": "^4.6.6"
   },
   "devDependencies": {
     "jest": "29.5.0",
